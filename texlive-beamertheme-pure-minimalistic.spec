@@ -3,7 +3,7 @@ Version:	56934
 Release:	2
 Summary:	A minimalistic presentation theme for LaTeX Beamer
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/beamertheme-pure-minimalistic
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beamertheme-pure-minimalistic
 License:	gpl3+
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.doc.r%{version}.tar.xz
