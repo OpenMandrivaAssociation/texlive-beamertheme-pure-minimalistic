@@ -1,40 +1,26 @@
-Name:		texlive-beamertheme-pure-minimalistic
-Version:	56934
-Release:	2
+%global tl_name beamertheme-pure-minimalistic
+%global tl_revision 56934
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.0.0
+Release:	%{tl_revision}.1
 Summary:	A minimalistic presentation theme for LaTeX Beamer
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beamertheme-pure-minimalistic
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beamer-contrib/themes/beamertheme-pure-minimalistic
 License:	gpl3+
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beamertheme-pure-minimalistic.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The main features of this minimalistic Beamer theme are: Easily
-use own logos. Customizable. Looks good in a 4:3 and 16:9
-aspect ratio, without the need to change anything. Provides an
-environment for vertically-spaced items. Provides light and
-dark mode. Is designed to be purely minimalistic without any
-distractions.
+The main features of this minimalistic Beamer theme are: Easily use own
+logos. Customizable. Looks good in a 4:3 and 16:9 aspect ratio, without
+the need to change anything. Provides an environment for vertically-
+spaced items. Provides light and dark mode. Is designed to be purely
+minimalistic without any distractions.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/beamertheme-pure-minimalistic
-%doc %{_texmfdistdir}/doc/latex/beamertheme-pure-minimalistic
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
